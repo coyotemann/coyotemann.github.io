@@ -15,34 +15,36 @@
     .project-meta-item p { font-size: 0.95rem; color: var(--color-text-light); }
     .project-description { max-width: 720px; margin-bottom: 60px; }
     .project-description p { font-size: 1.05rem; line-height: 1.8; margin-bottom: 16px; color: var(--color-text); }
-    .project-images { display: flex; flex-direction: column; gap: 24px; margin-bottom: 80px; }
-    .project-images img { width: 100%; background-color: var(--color-border); }
     .project-nav { display: flex; justify-content: space-between; padding: 40px 0; border-top: 1px solid var(--color-border); }
     .project-nav a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; position: relative; padding: 4px 0; }
     .project-nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background-color: var(--color-text); transition: width 0.3s ease; }
     .project-nav a:hover::after { width: 100%; }
 
-    /* VIDEO GRID STYLES */
     .video-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 32px;
       margin-bottom: 80px;
     }
+    .video-item {
+      width: 100%;
+    }
     .video-wrapper {
       position: relative;
-      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      width: 100%;
+      padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
-      background-color: var(--color-border);
+      background-color: #000;
+      border-radius: 2px;
     }
-    .video-wrapper iframe {
+    .video-wrapper video {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      border: 0;
+      object-fit: cover;
     }
     .video-caption {
       margin-top: 12px;
@@ -108,85 +110,69 @@
         <p>Add your description of your social media creative work here.</p>
       </div>
 
-      <!--
-        =============================================
-        HOW TO ADD YOUR VIDEOS:
-        
-        1. Upload each video to YouTube as "Unlisted"
-        2. Go to the video → Share → Embed
-        3. Copy ONLY the src URL from the iframe code
-           It looks like: https://www.youtube.com/embed/XXXXXXXXXXX
-        4. Replace the placeholder URLs below
-        
-        IF USING VIMEO:
-           The URL looks like: https://player.vimeo.com/video/XXXXXXXXX
-        =============================================
-      -->
-
       <div class="video-grid">
 
-        <!-- VIDEO 1 -->
+        <!-- VIDEO 1: Gurneys Social -->
         <div class="video-item">
           <div class="video-wrapper">
-            <!-- EDIT: Replace the src URL with your YouTube/Vimeo embed URL -->
-            <iframe 
-              src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
+            <video controls preload="metadata" playsinline>
+              <source 
+                src="https://res.cloudinary.com/dtcgt800d/video/upload/q_auto/Gurneys_Social_emjk3j.mp4" 
+                type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
           <div class="video-caption">
-            <!-- EDIT: Video title and description -->
-            <h3>Video Title One</h3>
-            <p>Client / Brand Name</p>
+            <h3>Gurney's Social</h3>
+            <p>Gurney's Resorts</p>
           </div>
         </div>
 
-        <!-- VIDEO 2 -->
+        <!-- VIDEO 2: Surf Lodge Kate Hudson -->
         <div class="video-item">
           <div class="video-wrapper">
-            <!-- EDIT: Replace the src URL -->
-            <iframe 
-              src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
+            <video controls preload="metadata" playsinline>
+              <source 
+                src="https://res.cloudinary.com/dtcgt800d/video/upload/q_auto/Surf_lodge_kate_hudson_1_prob4_x3qw3y.mp4" 
+                type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
           <div class="video-caption">
-            <h3>Video Title Two</h3>
-            <p>Client / Brand Name</p>
+            <h3>Surf Lodge — Kate Hudson</h3>
+            <p>The Surf Lodge</p>
           </div>
         </div>
 
-        <!-- VIDEO 3 -->
+        <!-- VIDEO 3: Bontemps Social -->
         <div class="video-item">
           <div class="video-wrapper">
-            <!-- EDIT: Replace the src URL -->
-            <iframe 
-              src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
+            <video controls preload="metadata" playsinline>
+              <source 
+                src="https://res.cloudinary.com/dtcgt800d/video/upload/q_auto/Bontemps_Social_litily.mp4" 
+                type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
           <div class="video-caption">
-            <h3>Video Title Three</h3>
-            <p>Client / Brand Name</p>
+            <h3>Bontemps Social</h3>
+            <p>Bontemps</p>
           </div>
         </div>
 
-        <!-- VIDEO 4 -->
+        <!-- VIDEO 4: Bold Commercial -->
         <div class="video-item">
           <div class="video-wrapper">
-            <!-- EDIT: Replace the src URL -->
-            <iframe 
-              src="https://www.youtube.com/embed/YOUR_VIDEO_ID_4" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
+            <video controls preload="metadata" playsinline>
+              <source 
+                src="https://res.cloudinary.com/dtcgt800d/video/upload/q_auto/Bold_Comercial_Cut_1_1_prob4_y6icpf.mp4" 
+                type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
           <div class="video-caption">
-            <h3>Video Title Four</h3>
-            <p>Client / Brand Name</p>
+            <h3>Bold Commercial</h3>
+            <p>Bold</p>
           </div>
         </div>
 
