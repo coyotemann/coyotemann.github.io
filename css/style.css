@@ -8,7 +8,6 @@
 }
 
 :root {
-  /* EDIT THESE to change your site's color scheme */
   --color-bg: #fafafa;
   --color-text: #1a1a1a;
   --color-text-light: #6b6b6b;
@@ -257,7 +256,7 @@ a {
 }
 
 /* ============================
-   WORK / PROJECT GRID
+   WORK / PROJECT GRID (Homepage)
    ============================ */
 .work {
   padding: var(--section-padding) 0;
@@ -279,7 +278,8 @@ a {
 .project-image {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
+  /* CHANGED: 16:9 aspect ratio */
+  aspect-ratio: 16 / 9;
   background-color: var(--color-border);
 }
 
@@ -322,6 +322,159 @@ a {
   color: var(--color-text-light);
   letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+
+/* ============================
+   PROJECT PAGE GALLERY (3-column)
+   ============================ */
+.project-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 80px;
+}
+
+.project-images .gallery-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-border);
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.project-images .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Hover zoom on gallery images */
+.project-images .gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+/* ============================
+   LIGHTBOX
+   ============================ */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.92);
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  cursor: zoom-out;
+  animation: lightboxFadeIn 0.3s ease;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+@keyframes lightboxFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 2px;
+  cursor: default;
+  animation: lightboxZoomIn 0.3s ease;
+}
+
+@keyframes lightboxZoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.lightbox-close:hover {
+  transform: rotate(90deg);
+}
+
+.lightbox-close::before,
+.lightbox-close::after {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 2px;
+  background-color: #ffffff;
+}
+
+.lightbox-close::before {
+  transform: rotate(45deg);
+}
+
+.lightbox-close::after {
+  transform: rotate(-45deg);
+}
+
+/* Lightbox navigation arrows */
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 16px;
+  z-index: 10000;
+  transition: opacity 0.3s ease;
+  opacity: 0.7;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  opacity: 1;
+}
+
+.lightbox-prev {
+  left: 16px;
+}
+
+.lightbox-next {
+  right: 16px;
+}
+
+.lightbox-prev::before,
+.lightbox-next::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+}
+
+.lightbox-prev::before {
+  transform: rotate(-135deg);
+}
+
+.lightbox-next::before {
+  transform: rotate(45deg);
 }
 
 /* ============================
@@ -493,6 +646,11 @@ a {
     gap: 48px;
   }
 
+  .project-images {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
   .about-grid {
     grid-template-columns: 1fr;
     gap: 48px;
@@ -548,5 +706,28 @@ a {
 
   .hero-title {
     font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .project-images {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* Lightbox mobile adjustments */
+  .lightbox {
+    padding: 16px;
+  }
+
+  .lightbox-close {
+    top: 12px;
+    right: 12px;
+  }
+
+  .lightbox-prev {
+    left: 4px;
+  }
+
+  .lightbox-next {
+    right: 4px;
   }
 }
