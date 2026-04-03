@@ -153,7 +153,6 @@ a {
   width: 100%;
 }
 
-/* Mobile toggle */
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -278,7 +277,6 @@ a {
 .project-image {
   position: relative;
   overflow: hidden;
-  /* CHANGED: 16:9 aspect ratio */
   aspect-ratio: 16 / 9;
   background-color: var(--color-border);
 }
@@ -325,34 +323,44 @@ a {
 }
 
 /* ============================
-   PROJECT PAGE GALLERY (3-column)
+   ADAPTIVE PHOTO GRID (Project Pages)
    ============================ */
-.project-images {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+.project-gallery {
   margin-bottom: 80px;
 }
 
-.project-images .gallery-item {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-  background-color: var(--color-border);
-  cursor: pointer;
-  border-radius: 2px;
+.gallery-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+  width: 100%;
 }
 
-.project-images .gallery-item img {
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  flex-basis: 0;
+  min-width: 0;
+}
+
+.gallery-item .aspect-filler {
+  display: block;
+  width: 100%;
+}
+
+.gallery-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
 
-/* Hover zoom on gallery images */
-.project-images .gallery-item:hover img {
-  transform: scale(1.08);
+.gallery-item:hover img {
+  transform: scale(1.05);
 }
 
 /* ============================
@@ -431,7 +439,6 @@ a {
   transform: rotate(-45deg);
 }
 
-/* Lightbox navigation arrows */
 .lightbox-prev,
 .lightbox-next {
   position: absolute;
@@ -620,7 +627,7 @@ a {
 }
 
 /* ============================
-   ANIMATIONS (scroll reveal)
+   ANIMATIONS
    ============================ */
 .reveal {
   opacity: 0;
@@ -631,6 +638,57 @@ a {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ============================
+   VIDEO GRID (Social Media Creative)
+   ============================ */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-bottom: 80px;
+}
+
+.video-item {
+  width: 100%;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  background-color: #000;
+  border-radius: 2px;
+}
+
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-caption {
+  margin-top: 12px;
+}
+
+.video-caption h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.video-caption p {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 /* ============================
@@ -646,11 +704,6 @@ a {
     gap: 48px;
   }
 
-  .project-images {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
   .about-grid {
     grid-template-columns: 1fr;
     gap: 48px;
@@ -663,6 +716,10 @@ a {
   .about-details {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -708,12 +765,16 @@ a {
     font-size: clamp(2.5rem, 12vw, 4rem);
   }
 
-  .project-images {
-    grid-template-columns: 1fr;
-    gap: 10px;
+  .gallery-row {
+    flex-wrap: wrap;
   }
 
-  /* Lightbox mobile adjustments */
+  .gallery-item {
+    flex-grow: 0 !important;
+    width: 100% !important;
+    flex-basis: 100% !important;
+  }
+
   .lightbox {
     padding: 16px;
   }
@@ -723,11 +784,6 @@ a {
     right: 12px;
   }
 
-  .lightbox-prev {
-    left: 4px;
-  }
-
-  .lightbox-next {
-    right: 4px;
-  }
+  .lightbox-prev { left: 4px; }
+  .lightbox-next { right: 4px; }
 }
