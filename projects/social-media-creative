@@ -19,54 +19,6 @@
     .project-nav a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; position: relative; padding: 4px 0; }
     .project-nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background-color: var(--color-text); transition: width 0.3s ease; }
     .project-nav a:hover::after { width: 100%; }
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-      margin-bottom: 80px;
-    }
-    .video-item {
-      width: 100%;
-    }
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      background-color: #000;
-      border-radius: 2px;
-    }
-    .video-wrapper video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .video-caption {
-      margin-top: 12px;
-    }
-    .video-caption h3 {
-      font-family: var(--font-heading);
-      font-size: 1.1rem;
-      font-weight: 500;
-      margin-bottom: 4px;
-    }
-    .video-caption p {
-      font-size: 0.8rem;
-      color: var(--color-text-light);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    @media (max-width: 600px) {
-      .video-grid {
-        grid-template-columns: 1fr;
-      }
-    }
   </style>
 </head>
 <body>
@@ -106,7 +58,6 @@
       </div>
 
       <div class="project-description">
-        <!-- EDIT: Describe this project -->
         <p>Add your description of your social media creative work here.</p>
       </div>
 
