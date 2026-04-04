@@ -19,6 +19,80 @@
     .project-nav a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; position: relative; padding: 4px 0; }
     .project-nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background-color: var(--color-text); transition: width 0.3s ease; }
     .project-nav a:hover::after { width: 100%; }
+
+    /* ── Portrait (9:16) & Landscape (16:9) video grids ── */
+    .portrait-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .landscape-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      max-width: 720px;
+      margin: 0 auto 40px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      overflow: hidden;
+      background: #000;
+      border-radius: 4px;
+    }
+
+    .video-wrapper.portrait {
+      aspect-ratio: 9 / 16;
+    }
+
+    .video-wrapper.landscape {
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-wrapper video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-caption {
+      padding: 14px 0 0;
+    }
+
+    .video-caption h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .video-caption p {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .portrait-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .landscape-grid {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .portrait-grid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -61,11 +135,12 @@
         <p>Add your description of your social media creative work here.</p>
       </div>
 
-      <div class="video-grid">
+      <!-- ── PORTRAIT VIDEOS (9:16) ── -->
+      <div class="portrait-grid">
 
-        <!-- VIDEO 1: Gurneys Social -->
+        <!-- VIDEO 1 -->
         <div class="video-item">
-          <div class="video-wrapper">
+          <div class="video-wrapper portrait">
             <video controls preload="metadata" playsinline>
               <source 
                 src="https://res.cloudinary.com/dtcgt800d/video/upload/v1774849741/Gurneys_Social_emjk3j.mov" 
@@ -77,14 +152,14 @@
             </video>
           </div>
           <div class="video-caption">
-            <h3>Gurney's Social</h3>
-            <p>Gurney's Resorts</p>
+            <h3>Dolce & Gabbana Beach House Pop Up</h3>
+            <p>Gurney's Montauk Resort & Seawater Spa</p>
           </div>
         </div>
 
-        <!-- VIDEO 2: Surf Lodge Kate Hudson -->
+        <!-- VIDEO 2 -->
         <div class="video-item">
-          <div class="video-wrapper">
+          <div class="video-wrapper portrait">
             <video controls preload="metadata" playsinline>
               <source 
                 src="https://res.cloudinary.com/dtcgt800d/video/upload/v1774850206/Surf_lodge_kate_hudson_1_prob4_x3qw3y.mov" 
@@ -96,14 +171,14 @@
             </video>
           </div>
           <div class="video-caption">
-            <h3>Surf Lodge — Kate Hudson</h3>
+            <h3>Kate Hudson Album Release</h3>
             <p>The Surf Lodge</p>
           </div>
         </div>
 
-        <!-- VIDEO 3: Bontemps Social -->
+        <!-- VIDEO 3 -->
         <div class="video-item">
-          <div class="video-wrapper">
+          <div class="video-wrapper portrait">
             <video controls preload="metadata" playsinline>
               <source 
                 src="https://res.cloudinary.com/dtcgt800d/video/upload/v1774850332/Bontemps_Social_litily.mov" 
@@ -115,14 +190,19 @@
             </video>
           </div>
           <div class="video-caption">
-            <h3>Bontemps Social</h3>
-            <p>Bontemps</p>
+            <h3>Bontemps Clothing AI Commercial</h3>
+            <p>Montauk, NY</p>
           </div>
         </div>
 
-        <!-- VIDEO 4: Bold Commercial -->
+      </div>
+
+      <!-- ── LANDSCAPE VIDEO (16:9) ── -->
+      <div class="landscape-grid">
+
+        <!-- VIDEO 4 -->
         <div class="video-item">
-          <div class="video-wrapper">
+          <div class="video-wrapper landscape">
             <video controls preload="metadata" playsinline>
               <source 
                 src="https://res.cloudinary.com/dtcgt800d/video/upload/v1774850810/Bold_Comercial_Cut_1_1_prob4_y6icpf.mov" 
@@ -134,8 +214,8 @@
             </video>
           </div>
           <div class="video-caption">
-            <h3>Bold Commercial</h3>
-            <p>Bold</p>
+            <h3>BOLD Unbreakable Glassware</h3>
+            <p>The Hamptons</p>
           </div>
         </div>
 
