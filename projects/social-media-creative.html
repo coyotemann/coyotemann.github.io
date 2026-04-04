@@ -1,163 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Social Media Creative — Will Drucker Creative</title>
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    .project-hero { padding: calc(var(--nav-height) + 80px) 0 60px; }
-    .project-hero .section-title { margin-bottom: 16px; }
-    .project-meta { display: flex; gap: 40px; margin-bottom: 60px; flex-wrap: wrap; }
-    .project-meta-item h4 { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; margin-bottom: 4px; }
-    .project-meta-item p { font-size: 0.95rem; color: var(--color-text-light); }
-    .project-description { max-width: 720px; margin-bottom: 60px; }
-    .project-description p { font-size: 1.05rem; line-height: 1.8; margin-bottom: 16px; color: var(--color-text); }
-    .project-nav { display: flex; justify-content: space-between; padding: 40px 0; border-top: 1px solid var(--color-border); }
-    .project-nav a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; position: relative; padding: 4px 0; }
-    .project-nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background-color: var(--color-text); transition: width 0.3s ease; }
-    .project-nav a:hover::after { width: 100%; }
-
-    /* ── 2-Column Video Grid ── */
-    .video-grid-2col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px 30px;
-      align-items: start;
-      margin-bottom: 60px;
-    }
-
-    /* ── Portrait items: 40% smaller, centered in column ── */
-    .video-grid-2col .video-item.portrait-item {
-      width: 60%;
-      justify-self: center;
-    }
-
-    /* ── Landscape item: vertically centered with row neighbor ── */
-    .video-grid-2col .video-item.landscape-item {
-      align-self: center;
-    }
-
-    .video-grid-2col .video-item .video-wrapper {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      background: #000;
-      border-radius: 4px;
-    }
-
-    /* ── Portrait 9:16 ── */
-    .video-grid-2col .video-item .video-wrapper.portrait {
-      padding-bottom: 177.78%;
-      height: 0;
-    }
-
-    /* ── Landscape 16:9 ── */
-    .video-grid-2col .video-item .video-wrapper.landscape {
-      padding-bottom: 56.25%;
-      height: 0;
-    }
-
-    .video-grid-2col .video-item .video-wrapper video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .video-grid-2col .video-item .video-caption {
-      padding: 14px 0 0;
-    }
-
-    .video-grid-2col .video-item .video-caption h3 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    .video-grid-2col .video-item .video-caption p {
-      font-size: 0.85rem;
-      color: var(--color-text-light);
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 768px) {
-      .video-grid-2col {
-        gap: 30px 20px;
-      }
-      .video-grid-2col .video-item.portrait-item {
-        width: 70%;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .video-grid-2col {
-        grid-template-columns: 1fr;
-        max-width: 280px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .video-grid-2col .video-item.portrait-item {
-        width: 100%;
-      }
-      .video-grid-2col .video-item.landscape-item {
-        align-self: start;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="../index.html" class="nav-logo">WILL DRUCKER CREATIVE</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="../index.html#work" class="nav-link">Work</a></li>
-        <li><a href="../index.html#about" class="nav-link">About</a></li>
-        <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main>
-    <div class="section-container">
-      <div class="project-hero">
-        <h1 class="section-title">Social Media Creative</h1>
-        <div class="project-meta">
-          <div class="project-meta-item">
-            <h4>Category</h4>
-            <p>Creative Direction</p>
-          </div>
-          <div class="project-meta-item">
-            <h4>Role</h4>
-            <p>Creative Director & Photographer</p>
-          </div>
-          <div class="project-meta-item">
-            <h4>Year</h4>
-            <p>2024</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-description">
-        <p>Add your description of your social media creative work here.</p>
-      </div>
-
       <!-- ── 2-COLUMN VIDEO GRID ── -->
       <div class="video-grid-2col">
 
         <!-- ROW 1, COL 1: D&G (Portrait 9:16) -->
         <div class="video-item portrait-item">
           <div class="video-wrapper portrait">
-            <video controls preload="metadata" playsinline>
+            <video 
+              controls 
+              preload="metadata" 
+              playsinline
+              poster="https://res.cloudinary.com/dtcgt800d/video/upload/so_5/v1774849741/Gurneys_Social_emjk3j.jpg"
+            >
               <source 
                 src="https://res.cloudinary.com/dtcgt800d/video/upload/v1774849741/Gurneys_Social_emjk3j.mov" 
                 type="video/quicktime">
@@ -176,7 +28,12 @@
         <!-- ROW 1, COL 2: Kate Hudson (Portrait 9:16) -->
         <div class="video-item portrait-item">
           <div class="video-wrapper portrait">
-            <video controls preload="metadata" playsinline>
+            <video 
+              controls 
+              preload="metadata" 
+              playsinline
+              poster="https://res.cloudinary.com/dtcgt800d/video/upload/so_47/v1774850206/Surf_lodge_kate_hudson_1_prob4_x3qw3y.jpg"
+            >
               <source 
                 src="https://res.cloudinary.com/dtcgt800d/video/upload/v1774850206/Surf_lodge_kate_hudson_1_prob4_x3qw3y.mov" 
                 type="video/quicktime">
@@ -195,7 +52,12 @@
         <!-- ROW 2, COL 1: Bontemps (Portrait 9:16) -->
         <div class="video-item portrait-item">
           <div class="video-wrapper portrait">
-            <video controls preload="metadata" playsinline>
+            <video 
+              controls 
+              preload="metadata" 
+              playsinline
+              poster="https://res.cloudinary.com/dtcgt800d/video/upload/so_34/v1774850332/Bontemps_Social_litily.jpg"
+            >
               <source 
                 src="https://res.cloudinary.com/dtcgt800d/video/upload/v1774850332/Bontemps_Social_litily.mov" 
                 type="video/quicktime">
@@ -211,10 +73,15 @@
           </div>
         </div>
 
-        <!-- ROW 2, COL 2: BOLD (Landscape 16:9) — centered with Bontemps -->
+        <!-- ROW 2, COL 2: BOLD (Landscape 16:9) -->
         <div class="video-item landscape-item">
           <div class="video-wrapper landscape">
-            <video controls preload="metadata" playsinline>
+            <video 
+              controls 
+              preload="metadata" 
+              playsinline
+              poster="https://res.cloudinary.com/dtcgt800d/video/upload/so_55/v1774850810/Bold_Comercial_Cut_1_1_prob4_y6icpf.jpg"
+            >
               <source 
                 src="https://res.cloudinary.com/dtcgt800d/video/upload/v1774850810/Bold_Comercial_Cut_1_1_prob4_y6icpf.mov" 
                 type="video/quicktime">
@@ -231,21 +98,3 @@
         </div>
 
       </div>
-
-      <div class="project-nav">
-        <a href="real-estate-photography.html">← Real Estate Photography</a>
-        <a href="../index.html#work">All Work</a>
-        <a href="fine-art-photography.html">Fine Art Photography →</a>
-      </div>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="section-container">
-      <p>&copy; <span id="year"></span> Will Drucker Creative. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script src="../js/main.js"></script>
-</body>
-</html>
