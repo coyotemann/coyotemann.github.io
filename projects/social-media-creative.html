@@ -29,6 +29,17 @@
       margin-bottom: 60px;
     }
 
+    /* ── Portrait items: 40% smaller, centered in column ── */
+    .video-grid-2col .video-item.portrait-item {
+      width: 60%;
+      justify-self: center;
+    }
+
+    /* ── Landscape item: vertically centered with row neighbor ── */
+    .video-grid-2col .video-item.landscape-item {
+      align-self: center;
+    }
+
     .video-grid-2col .video-item .video-wrapper {
       position: relative;
       width: 100%;
@@ -39,13 +50,13 @@
 
     /* ── Portrait 9:16 ── */
     .video-grid-2col .video-item .video-wrapper.portrait {
-      padding-bottom: 177.78%; /* 16/9 * 100 = 177.78% for 9:16 */
+      padding-bottom: 177.78%;
       height: 0;
     }
 
     /* ── Landscape 16:9 ── */
     .video-grid-2col .video-item .video-wrapper.landscape {
-      padding-bottom: 56.25%; /* 9/16 * 100 = 56.25% for 16:9 */
+      padding-bottom: 56.25%;
       height: 0;
     }
 
@@ -79,14 +90,23 @@
       .video-grid-2col {
         gap: 30px 20px;
       }
+      .video-grid-2col .video-item.portrait-item {
+        width: 70%;
+      }
     }
 
     @media (max-width: 480px) {
       .video-grid-2col {
         grid-template-columns: 1fr;
-        max-width: 360px;
+        max-width: 280px;
         margin-left: auto;
         margin-right: auto;
+      }
+      .video-grid-2col .video-item.portrait-item {
+        width: 100%;
+      }
+      .video-grid-2col .video-item.landscape-item {
+        align-self: start;
       }
     }
   </style>
@@ -135,7 +155,7 @@
       <div class="video-grid-2col">
 
         <!-- ROW 1, COL 1: D&G (Portrait 9:16) -->
-        <div class="video-item">
+        <div class="video-item portrait-item">
           <div class="video-wrapper portrait">
             <video controls preload="metadata" playsinline>
               <source 
@@ -154,7 +174,7 @@
         </div>
 
         <!-- ROW 1, COL 2: Kate Hudson (Portrait 9:16) -->
-        <div class="video-item">
+        <div class="video-item portrait-item">
           <div class="video-wrapper portrait">
             <video controls preload="metadata" playsinline>
               <source 
@@ -173,7 +193,7 @@
         </div>
 
         <!-- ROW 2, COL 1: Bontemps (Portrait 9:16) -->
-        <div class="video-item">
+        <div class="video-item portrait-item">
           <div class="video-wrapper portrait">
             <video controls preload="metadata" playsinline>
               <source 
@@ -191,8 +211,8 @@
           </div>
         </div>
 
-        <!-- ROW 2, COL 2: BOLD (Landscape 16:9) -->
-        <div class="video-item">
+        <!-- ROW 2, COL 2: BOLD (Landscape 16:9) — centered with Bontemps -->
+        <div class="video-item landscape-item">
           <div class="video-wrapper landscape">
             <video controls preload="metadata" playsinline>
               <source 
