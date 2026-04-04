@@ -20,75 +20,71 @@
     .project-nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background-color: var(--color-text); transition: width 0.3s ease; }
     .project-nav a:hover::after { width: 100%; }
 
-    /* ── Portrait (9:16) & Landscape (16:9) video grids ── */
-    .portrait-grid {
+    /* ── 2-Column Video Grid ── */
+    .video-grid-2col {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      margin-bottom: 40px;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px 30px;
+      align-items: start;
+      margin-bottom: 60px;
     }
 
-    .landscape-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      max-width: 720px;
-      margin: 0 auto 40px;
-    }
-
-    .video-wrapper {
+    .video-grid-2col .video-item .video-wrapper {
       position: relative;
+      width: 100%;
       overflow: hidden;
       background: #000;
       border-radius: 4px;
     }
 
-    .video-wrapper.portrait {
-      aspect-ratio: 9 / 16;
+    /* ── Portrait 9:16 ── */
+    .video-grid-2col .video-item .video-wrapper.portrait {
+      padding-bottom: 177.78%; /* 16/9 * 100 = 177.78% for 9:16 */
+      height: 0;
     }
 
-    .video-wrapper.landscape {
-      aspect-ratio: 16 / 9;
+    /* ── Landscape 16:9 ── */
+    .video-grid-2col .video-item .video-wrapper.landscape {
+      padding-bottom: 56.25%; /* 9/16 * 100 = 56.25% for 16:9 */
+      height: 0;
     }
 
-    .video-wrapper video {
+    .video-grid-2col .video-item .video-wrapper video {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
-    .video-caption {
+    .video-grid-2col .video-item .video-caption {
       padding: 14px 0 0;
     }
 
-    .video-caption h3 {
+    .video-grid-2col .video-item .video-caption h3 {
       font-size: 0.95rem;
       font-weight: 600;
       margin-bottom: 2px;
     }
 
-    .video-caption p {
+    .video-grid-2col .video-item .video-caption p {
       font-size: 0.85rem;
       color: var(--color-text-light);
     }
 
     /* ── Responsive ── */
     @media (max-width: 768px) {
-      .portrait-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-      }
-      .landscape-grid {
-        max-width: 100%;
+      .video-grid-2col {
+        gap: 30px 20px;
       }
     }
 
     @media (max-width: 480px) {
-      .portrait-grid {
+      .video-grid-2col {
         grid-template-columns: 1fr;
-        max-width: 300px;
+        max-width: 360px;
         margin-left: auto;
         margin-right: auto;
       }
@@ -135,10 +131,10 @@
         <p>Add your description of your social media creative work here.</p>
       </div>
 
-      <!-- ── PORTRAIT VIDEOS (9:16) ── -->
-      <div class="portrait-grid">
+      <!-- ── 2-COLUMN VIDEO GRID ── -->
+      <div class="video-grid-2col">
 
-        <!-- VIDEO 1 -->
+        <!-- ROW 1, COL 1: D&G (Portrait 9:16) -->
         <div class="video-item">
           <div class="video-wrapper portrait">
             <video controls preload="metadata" playsinline>
@@ -157,7 +153,7 @@
           </div>
         </div>
 
-        <!-- VIDEO 2 -->
+        <!-- ROW 1, COL 2: Kate Hudson (Portrait 9:16) -->
         <div class="video-item">
           <div class="video-wrapper portrait">
             <video controls preload="metadata" playsinline>
@@ -176,7 +172,7 @@
           </div>
         </div>
 
-        <!-- VIDEO 3 -->
+        <!-- ROW 2, COL 1: Bontemps (Portrait 9:16) -->
         <div class="video-item">
           <div class="video-wrapper portrait">
             <video controls preload="metadata" playsinline>
@@ -195,12 +191,7 @@
           </div>
         </div>
 
-      </div>
-
-      <!-- ── LANDSCAPE VIDEO (16:9) ── -->
-      <div class="landscape-grid">
-
-        <!-- VIDEO 4 -->
+        <!-- ROW 2, COL 2: BOLD (Landscape 16:9) -->
         <div class="video-item">
           <div class="video-wrapper landscape">
             <video controls preload="metadata" playsinline>
