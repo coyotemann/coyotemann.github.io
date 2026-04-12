@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ── Project Page Layout ── */
     .project-hero {
       padding: calc(var(--nav-height) + 80px) 0 60px;
     }
@@ -97,7 +95,6 @@
       background: #000;
     }
 
-    /* After image — full width base layer */
     .ba-slider .ba-after {
       display: block;
       width: 100%;
@@ -109,7 +106,6 @@
       height: auto;
     }
 
-    /* Before image — clipped overlay */
     .ba-slider .ba-before {
       position: absolute;
       top: 0;
@@ -121,14 +117,10 @@
 
     .ba-slider .ba-before img {
       display: block;
-      width: auto;
-      min-width: 100%;
       height: 100%;
       object-fit: cover;
-      /* This ensures the before image matches the after image size */
     }
 
-    /* Handle — vertical drag line */
     .ba-handle {
       position: absolute;
       top: 0;
@@ -171,7 +163,6 @@
       display: block;
     }
 
-    /* Labels */
     .ba-label {
       position: absolute;
       bottom: 16px;
@@ -196,7 +187,6 @@
       right: 16px;
     }
 
-    /* Caption below slider */
     .ba-caption {
       margin-top: 14px;
       line-height: 1.6;
@@ -216,32 +206,26 @@
       letter-spacing: 0.05em;
     }
 
-    /* ── Responsive ── */
     @media (max-width: 600px) {
       .ba-grid {
         gap: 40px;
       }
-
       .ba-handle-circle {
         width: 36px;
         height: 36px;
       }
-
       .ba-handle-arrows {
         font-size: 8px;
         gap: 4px;
       }
-
       .ba-label {
         font-size: 0.6rem;
         padding: 4px 10px;
         bottom: 10px;
       }
-
       .ba-label-before {
         left: 10px;
       }
-
       .ba-label-after {
         right: 10px;
       }
@@ -295,10 +279,10 @@
         <div class="ba-item">
           <div class="ba-slider">
             <div class="ba-after">
-              <img src="YOUR_AFTER_IMAGE_1_URL" alt="After retouching">
+              <img src="https://res.cloudinary.com/dzgfa7n55/image/upload/v1775965427/Beauty_After_1_rjt9ka.jpg" alt="After retouching">
             </div>
             <div class="ba-before">
-              <img src="YOUR_BEFORE_IMAGE_1_URL" alt="Before retouching">
+              <img src="https://res.cloudinary.com/dzgfa7n55/image/upload/v1775966615/Beauty_Before_1_bakg0w.jpg" alt="Before retouching">
             </div>
             <div class="ba-handle">
               <div class="ba-handle-circle">
@@ -321,10 +305,10 @@
         <div class="ba-item">
           <div class="ba-slider">
             <div class="ba-after">
-              <img src="YOUR_AFTER_IMAGE_2_URL" alt="After retouching">
+              <img src="https://res.cloudinary.com/dzgfa7n55/image/upload/v1775966661/Beauty_After_2_eeuvpl.jpg" alt="After retouching">
             </div>
             <div class="ba-before">
-              <img src="YOUR_BEFORE_IMAGE_2_URL" alt="Before retouching">
+              <img src="https://res.cloudinary.com/dzgfa7n55/image/upload/v1775966661/Beauty_Before_2_qhxugj.jpg" alt="Before retouching">
             </div>
             <div class="ba-handle">
               <div class="ba-handle-circle">
@@ -343,7 +327,7 @@
           </div>
         </div>
 
-        <!-- SLIDER 3 -->
+        <!-- SLIDER 3 (placeholder) -->
         <div class="ba-item">
           <div class="ba-slider">
             <div class="ba-after">
@@ -369,7 +353,7 @@
           </div>
         </div>
 
-        <!-- SLIDER 4 -->
+        <!-- SLIDER 4 (placeholder) -->
         <div class="ba-item">
           <div class="ba-slider">
             <div class="ba-after">
@@ -395,7 +379,7 @@
           </div>
         </div>
 
-        <!-- SLIDER 5 -->
+        <!-- SLIDER 5 (placeholder) -->
         <div class="ba-item">
           <div class="ba-slider">
             <div class="ba-after">
@@ -438,7 +422,6 @@
   </footer>
 
   <script>
-    // ── Before / After Slider Logic ──
     document.querySelectorAll('.ba-slider').forEach(function(slider) {
       var before = slider.querySelector('.ba-before');
       var handle = slider.querySelector('.ba-handle');
@@ -452,9 +435,7 @@
         } else {
           x = e.clientX - rect.left;
         }
-        // Clamp between 0 and slider width
-        var pct = Math.max(0, Math.min(x / rect.width, 1));
-        return pct;
+        return Math.max(0, Math.min(x / rect.width, 1));
       }
 
       function updateSlider(pct) {
@@ -463,7 +444,6 @@
         handle.style.left = percent;
       }
 
-      // Make the before image always match the full slider width
       function syncBeforeImage() {
         var img = before.querySelector('img');
         if (img) {
@@ -473,7 +453,6 @@
         }
       }
 
-      // Mouse events
       slider.addEventListener('mousedown', function(e) {
         e.preventDefault();
         isDragging = true;
@@ -490,7 +469,6 @@
         isDragging = false;
       });
 
-      // Touch events
       slider.addEventListener('touchstart', function(e) {
         isDragging = true;
         updateSlider(getPosition(e));
@@ -505,13 +483,10 @@
         isDragging = false;
       });
 
-      // Sync image sizes on load and resize
       syncBeforeImage();
       window.addEventListener('resize', syncBeforeImage);
 
-      // Also sync after images load
-      var imgs = slider.querySelectorAll('img');
-      imgs.forEach(function(img) {
+      slider.querySelectorAll('img').forEach(function(img) {
         img.addEventListener('load', syncBeforeImage);
       });
     });
