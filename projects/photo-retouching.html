@@ -6,7 +6,7 @@
   <title>Photo Retouching — Will Drucker Creative</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
   <style>
     .project-hero {
       padding: calc(var(--nav-height) + 80px) 0 60px;
@@ -30,16 +30,6 @@
     .project-meta-item p {
       font-size: 0.95rem;
       color: var(--color-text-light);
-    }
-    .project-description {
-      max-width: 720px;
-      margin-bottom: 60px;
-    }
-    .project-description p {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      margin-bottom: 16px;
-      color: var(--color-text);
     }
     .project-nav {
       display: flex;
@@ -67,6 +57,63 @@
     }
     .project-nav a:hover::after {
       width: 100%;
+    }
+
+    /* ── Stylized Intro ── */
+    .retouching-intro {
+      max-width: 900px;
+      margin-bottom: 80px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .retouching-intro .intro-eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .retouching-intro .intro-headline {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: var(--color-text);
+    }
+
+    .retouching-intro .intro-headline em {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .retouching-intro .intro-divider {
+      width: 48px;
+      height: 1.5px;
+      background-color: var(--color-text);
+      margin: 28px 0;
+    }
+
+    .retouching-intro .intro-body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--color-text-light);
+      max-width: 680px;
+    }
+
+    .retouching-intro .intro-body p {
+      margin-bottom: 16px;
+    }
+
+    .retouching-intro .intro-body p:last-child {
+      margin-bottom: 0;
     }
 
     /* ── Before / After Sliders ── */
@@ -207,25 +254,44 @@
     }
 
     @media (max-width: 600px) {
+      .retouching-intro {
+        margin-bottom: 50px;
+        padding-bottom: 40px;
+      }
+
+      .retouching-intro .intro-headline {
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
+      }
+
+      .retouching-intro .intro-body {
+        font-size: 0.95rem;
+        line-height: 1.8;
+      }
+
       .ba-grid {
         gap: 40px;
       }
+
       .ba-handle-circle {
         width: 36px;
         height: 36px;
       }
+
       .ba-handle-arrows {
         font-size: 8px;
         gap: 4px;
       }
+
       .ba-label {
         font-size: 0.6rem;
         padding: 4px 10px;
         bottom: 10px;
       }
+
       .ba-label-before {
         left: 10px;
       }
+
       .ba-label-after {
         right: 10px;
       }
@@ -263,16 +329,20 @@
           </div>
           <div class="project-meta-item">
             <h4>Year</h4>
-            <p>2026</p>
+            <p>2024</p>
           </div>
         </div>
       </div>
 
-      <div class="project-description">
-        <p>A collection of high-end photo retouching explorations focused on skin, light, and detail.
-Images are carefully refined to enhance natural textures while cleaning up imperfections such as pimples, lines, and other imperfections to create a polished editorial. 
-The focus is to elevate the emotional impact of the editorial through depth, color, and detail by balancing portraits with the atmosphere.
-        </p>
+      <!-- ── STYLIZED INTRO ── -->
+      <div class="retouching-intro">
+        <span class="intro-eyebrow">Skin · Light · Detail</span>
+        <h2 class="intro-headline">Elevating the emotional impact of <em>editorial portraiture</em> through depth, color, and refinement.</h2>
+        <div class="intro-divider"></div>
+        <div class="intro-body">
+          <p>A collection of high-end photo retouching explorations focused on skin, light, and detail. Each image is carefully refined to enhance natural textures while cleaning up imperfections — pores, blemishes, lines — to achieve a polished editorial finish.</p>
+          <p>The goal is never to erase, but to elevate. Balancing the subject with the atmosphere of each frame, every retouch aims to deepen the emotional resonance of the portrait through subtle shifts in depth, color, and clarity.</p>
+        </div>
       </div>
 
       <!-- ── BEFORE / AFTER SLIDERS ── -->
